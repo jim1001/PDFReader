@@ -1,5 +1,5 @@
 name:
-version: 0.0.1
+version: 0.1.0
 build: 1
 encrypt stacks: false
 multiple instances: false
@@ -53,7 +53,7 @@ build profiles:
         name:
     copy files:
       all platforms:
-        - filename: assets
+        - folder: ./assets
       macos:
       windows:
       linux:
@@ -61,3 +61,4 @@ build profiles:
       android:
   release:
   beta:
+  dev:
