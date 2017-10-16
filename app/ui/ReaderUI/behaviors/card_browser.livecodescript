@@ -2,7 +2,7 @@
 local sBrowserID
 on preOpenCard
    local   tFile
-   put levureAppFolder() & "/assets/pdfjs/web/viewer.html" into tFile
+   put levureAppFolder() & "/assets/pdfjs/web/test.txt" into tFile
    mobileControlCreate "browser"
    put the result into sBrowserId
    set the visible of graphic "placeholder" to false
