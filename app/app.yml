@@ -1,5 +1,5 @@
 name:
-version: 0.2.0
+version: 0.3.0
 build: 1
 encrypt stacks: false
 multiple instances: false
@@ -54,7 +54,7 @@ build profiles:
     copy files:
       all platforms:
         -filename: ./assets
-       macos:
+      macos:
       windows:
       linux:
       ios:
