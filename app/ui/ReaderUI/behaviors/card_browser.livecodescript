@@ -10,6 +10,6 @@ on preOpenCard
    mobileControlSet sBrowserId, "rect", the rect of graphic "placeholder"
    mobileControlSet sBrowserId, "visible", "true"
    answer tFile
-   mobileControlSet sBrowserId, "url", URL ("file:" &  tFile) 
+   mobileControlSet sBrowserId, "url", ("file:" &  tFile) 
    set the text of the field "fileContents" to URL ("file:" &  tFile) --fails without the bracket 
 end preOpenCard
