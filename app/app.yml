@@ -53,7 +53,7 @@ build profiles:
         name:
     copy files:
       all platforms:
-        - folder: ./assets
+        - filename: ./assets
       macos:
       windows:
       linux:
