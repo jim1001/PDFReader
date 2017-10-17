@@ -1,7 +1,7 @@
 ﻿script "card_Browser Behavior"
-local sBrowserID
+local sBrowserID, tFile
 on preOpenCard
-   local   tFile, tFile2
+   local   tFile2
    put "/sdcard/DemPowerAssets/pdfjs/web/viewer.html" into tFile
    mobileControlCreate "browser"
    put the result into sBrowserId
@@ -14,3 +14,8 @@ on preOpenCard
    answer "file2:" && tFile2
    set the text of the field "fileContents" to URL ("file:" &  tFile2)
 end preOpenCard
+
+command changePDF
+   put URL ("binfile:/sdcard/DemPowerAssets/tech.pdf") into URL ("binfile:" & "/sdcard/DemPowerAssets/pdfjs/web/test.pdf")
+   mobileControlSet sBrowserId, "url", ("file:" &  tFile)
+end changePDF
