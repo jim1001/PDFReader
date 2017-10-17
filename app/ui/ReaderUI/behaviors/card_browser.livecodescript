@@ -1,9 +1,7 @@
 ﻿script "card_Browser Behavior"
 on preOpenCard
-   local   tURL
-   #put "file://" & levureAppFolder() & "/assets/pdfjs/web/viewer.html" into tURL
-   put  ("file://" & levureAppFolder() & "/assets/test.txt") into tURL
+   local   tFile
+   put levureAppFolder() & "/assets/pdfjs/web/viewer.html" into tFile
    set the visible of graphic "placeholder" to false
-   answer tURL
-   set the URL of widget "Browser" to tURL
+   set the URL of widget "Browser" to ("file:" &  tFile)
 end preOpenCard
