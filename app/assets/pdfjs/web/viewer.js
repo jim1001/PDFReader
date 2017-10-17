@@ -16,7 +16,7 @@
 
 'use strict';
 
-var DEFAULT_URL = 'test.pdf'
+var DEFAULT_URL = 'test.pdf';
 
 
   var pdfjsWebLibs = {
