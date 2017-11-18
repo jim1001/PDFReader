@@ -16,7 +16,12 @@
 
 'use strict';
 
-var DEFAULT_URL = 'test.pdf';
+var DEFAULT_URL = 'test.pdf'
+/* var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';*/
+/* var DEFAULT_URL = '1.3_AssistiveTech.pdf'; */
+/* 
+var DEFAULT_URL = decodeURIComponent((new RegExp("[?|&]filepath=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [, ""])[1].replace(/\+/g, "%20")) || null;
+*/
 
 
   var pdfjsWebLibs = {
