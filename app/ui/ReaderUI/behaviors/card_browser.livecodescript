@@ -1,8 +1,10 @@
 ﻿script "card_Browser Behavior"
-local sViewerFile, sBrowserID
+local sViewerFile, sBrowserID, sWebFolder, sAssetsFolder
 --
 on preOpenCard
-   put levureAppFolder() & "/assets/pdfjs/web/viewer.html" into sViewerFile
+   put "/sdcard/DemPowerAssets/" into sAssetsFolder
+   put sAssetsFolder & "pdfjs/web/" into sWebFolder
+   put sAssetsFolder & "pdfjs/web/viewer.html" into sViewerFile
    if there is no file sViewerFile then
       answer "File does not exist:" && sViewerFile
       exit preOpenCard
@@ -23,19 +25,18 @@ on preOpenCard
 command buttonPDF pFile
    local tSrcFile, tDestFile, tDestFolder
    -- Test we can write to dest folder first
-   put levureAppFolder() & "/assets/pdfjs/web" into tDestFolder
+   put sWebFolder into tDestFolder
    if canWriteFileTo(tDestFolder) is false then
       answer "Folder not writable:" &  tDestFolder
       exit buttonPDF
    end if
-  put levureAppFolder() & "/assets/" & pFile into tSrcFile
+   put sAssetsFolder & pFile into tSrcFile
    if there is no file tSrcFile then
       answer "File does not exist:" && tSrcFile
       exit buttonPDF
    end if
-   put levureAppFolder() & "/assets/pdfjs/web/test.pdf" into tDestFile
+   put tDestFolder & "test.pdf" into tDestFile
    answer "Src:" && tSrcFile & cr & "Dest:" && tDestFile
-   
    put URL ("binfile:" & tSrcFile) into URL ("binfile:" & tDestFile)
    mobileControlSet sBrowserId, "url", ("file:" &  sViewerFile)   
 end buttonPDF
@@ -44,10 +45,12 @@ end buttonPDF
 -- canWriteFileTo
 --
 -- Re: http://lessons.livecode.com/m/2592/l/125989-check-whether-a-directory-is-drive-or-write-protected
+-- 
+-- Assumes pFolder ends with "/"
 --
 function canWriteFileTo pFolder
    local tRandomFileName
-   put pFolder & "/temp" & random(9999) into tRandomFileName
+   put pFolder & "temp" & random(9999) into tRandomFileName
    -- try creating a file
    open file tRandomFileName for write
    if the result is empty then
